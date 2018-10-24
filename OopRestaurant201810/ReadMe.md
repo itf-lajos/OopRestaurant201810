@@ -23,4 +23,12 @@ Képernyőképeket (egyenlőre) nem készítünk, mert az MVC template-k elkész
 Érdeklődő elkéri az étlapot és megnézi, hogy mit lehet nálunk enni, és mennyiért.
 
 
-##
+# Code First Migration
+kell hozzá:
+- EntityFramework nuget package
+- a Code First Migration engedélyezése: a Package Manager Console-ból: 
+  - enable-migrations
+  - ha létezik adatbázis, akkor automatikusan létrejön az első MigrationStep, ha nem létezik,
+    akkor kell az add-migration
+  - add-migration 'Initial Migration'
+  - update-database
