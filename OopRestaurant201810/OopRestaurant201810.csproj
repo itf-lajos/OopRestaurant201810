@@ -196,11 +196,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MenuItemsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MenuItem.cs" />
     <Compile Include="Migrations\201810242020175_IntitialMigration.cs" />
     <Compile Include="Migrations\201810242020175_IntitialMigration.Designer.cs">
       <DependentUpon>201810242020175_IntitialMigration.cs</DependentUpon>
@@ -208,6 +211,10 @@
     <Compile Include="Migrations\201810261826018_add Category table.cs" />
     <Compile Include="Migrations\201810261826018_add Category table.Designer.cs">
       <DependentUpon>201810261826018_add Category table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810261911579_add MenuItem table.cs" />
+    <Compile Include="Migrations\201810261911579_add MenuItem table.Designer.cs">
+      <DependentUpon>201810261911579_add MenuItem table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -276,6 +283,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\MenuItems\Create.cshtml" />
+    <Content Include="Views\MenuItems\Delete.cshtml" />
+    <Content Include="Views\MenuItems\Details.cshtml" />
+    <Content Include="Views\MenuItems\Edit.cshtml" />
+    <Content Include="Views\MenuItems\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -300,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810261826018_add Category table.resx">
       <DependentUpon>201810261826018_add Category table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810261911579_add MenuItem table.resx">
+      <DependentUpon>201810261911579_add MenuItem table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

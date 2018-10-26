@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Security.AccessControl;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -26,6 +27,8 @@ namespace OopRestaurant201810.Models
         }
 
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<MenuItem> MenuItems { get; set; }
 
         public static ApplicationDbContext Create()
         {
