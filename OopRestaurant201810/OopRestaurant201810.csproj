@@ -205,6 +205,10 @@
     <Compile Include="Migrations\201810242020175_IntitialMigration.Designer.cs">
       <DependentUpon>201810242020175_IntitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810261826018_add Category table.cs" />
+    <Compile Include="Migrations\201810261826018_add Category table.Designer.cs">
+      <DependentUpon>201810261826018_add Category table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -293,6 +297,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810242020175_IntitialMigration.resx">
       <DependentUpon>201810242020175_IntitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810261826018_add Category table.resx">
+      <DependentUpon>201810261826018_add Category table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

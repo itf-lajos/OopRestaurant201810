@@ -32,3 +32,10 @@ kell hozzá:
     akkor kell az add-migration
   - add-migration 'Initial Migration'
   - update-database
+- az adatbázist az SQL server object explorer ablakban látjuk, localdb-ként
+
+## Saját adat adatbázisba tétele lépései
+- Létre kell hozni egy osztályt, ami az adatokat tartalmazza (pl. Category)
+- Az osztályt fel kell venni DbSet típusú property-ként az ApplicationDbContext osztályba.
+- Ki kell adni az Add-Migration parancsot.
+- Ki kell adni az Update-Database parancsot. 
