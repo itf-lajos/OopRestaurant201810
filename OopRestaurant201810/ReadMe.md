@@ -39,3 +39,9 @@ kell hozzá:
 - Az osztályt fel kell venni DbSet típusú property-ként az ApplicationDbContext osztályba.
 - Ki kell adni az Add-Migration parancsot.
 - Ki kell adni az Update-Database parancsot. 
+
+## Adatbázis helyének megváltoztatása
+- A web.config-ban a ConnectionStrings beállítást kell átírni, a minták a https://wwwconnectionstrings.com
+  oldalon
+
+ 
