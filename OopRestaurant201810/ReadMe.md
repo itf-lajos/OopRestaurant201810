@@ -44,4 +44,7 @@ kell hozzá:
 - A web.config-ban a ConnectionStrings beállítást kell átírni, a minták a https://wwwconnectionstrings.com
   oldalon
 
+## Kezdeti automatikus adatfeltöltés
+- Migrations / Configurations.cs-ben
+- Minden update-database esetén lefut (Seed metódus)
  
