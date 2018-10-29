@@ -53,7 +53,6 @@ kell hozzá:
 - A MenuItem mellé a Category-t is be kell tölteni, hogy módosítani tudjuk a menuItem kategóriáját
 
 ## Felhasználók azonosítása és jogosultságkezelés
-
 - Bevezető rész: azonosítjuk a felhasználóinkat, és elválasztjuk a bejelentkezett és be nem jelentkezett felhasználókat egymástól
 - Az ASP.NET Identity a következőket végzi:
   - lehetővé teszi a felhasználók regisztrációját az oldalon
@@ -67,5 +66,10 @@ kell hozzá:
   tudjuk rendezni és a csoportoknak tudok jogosultságokat biztosítni.
   Például: fel tudok venni Admin, Pincér, Szakács, Főpincér csoportokat, és az egyes felhasználókat fel tudom venni ezekbe a csoportokba.
   Majd azt tudom mutatni, hogy egy adott Controller/Action egy adott csoport számára használható-e.
- 
- 
+
+### Csoport (Role) létrehozás
+- Az AspNetRole táblába felvisszük a csoportok neveit (az id mező GUID-ot vár, például a https://www.guidgenerator.com/online-guid-generator.aspx online Guid generátorral tudnk létrehozni)
+- Regisztrálunk felhasználókat, ezek az AspNetUsers táblába kerülnek
+- A felhasználókat hozzá tudjuk adni a csoporthoz úgy, hogy az AspNetUsers.Id és az AspNetRoles.Id értéket felvesszük az AspNetUserRoles táblába, megfelelően párosítva.
+- Figyelem: a jogosultságokat cookie-ba bejelentkezéskor írja az ASP.NET, ezért, ha változik valami, akkor ki kell jelentkezni és újra be
+-  

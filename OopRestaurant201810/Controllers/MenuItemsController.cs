@@ -37,7 +37,8 @@ namespace OopRestaurant201810.Controllers
         }
 
         // GET: MenuItems/Create
-        [Authorize]
+        [Authorize(Roles = "Fopincer,Admin")]   // Csak a főpincér ás az Admin csoport tagjai használhatják
+        // [Authorize(Users = "itf.lajos@gmail.com")]   // Csak a megadott felhasználó használhatja
         public ActionResult Create()
         {
             return View();
@@ -46,7 +47,7 @@ namespace OopRestaurant201810.Controllers
         // POST: MenuItems/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize]
+        [Authorize(Roles = "Fopincer,Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Description,Price")] MenuItem menuItem)
