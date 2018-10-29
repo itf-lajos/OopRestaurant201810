@@ -51,6 +51,21 @@ kell hozzá:
 ## Lenyílómező kezelése
 - Entry - kapu az Entity Framework-be
 - A MenuItem mellé a Category-t is be kell tölteni, hogy módosítani tudjuk a menuItem kategóriáját
- 
 
+## Felhasználók azonosítása és jogosultságkezelés
+
+- Bevezető rész: azonosítjuk a felhasználóinkat, és elválasztjuk a bejelentkezett és be nem jelentkezett felhasználókat egymástól
+- Az ASP.NET Identity a következőket végzi:
+  - lehetővé teszi a felhasználók regisztrációját az oldalon
+  - a regisztrált felhasználóknak végzi a session kezelését (session: bejelentkezéstől kijelentkezésig terjedő tevékenység)
+  - le tudjuk kérdezni egy kérés kiszolgálásakor, hogy a felhasználó be van-e jelentkezve, és ha igen, akkor mi az ő neve
+  - a controllereket és az action-öket védeni tudjuk: megadhatjuk, hogy csak bejelentkezett felhasználók férjenek hozzá
+    a teljes controllerhez vagy az egyes action-ökhőz
+- Authentikáció: felhasználó azonosítás (bejelentkezés, session kezelés, kijelentkezés)
+- Authorizáció: az adott felhasználónak van-e joga az adott tevékenységre (Controller/Action)
+- Az ASP.NET Identity alapértelmezettten Roles Based Authorizációval foglalkozik. Ez azt jelenti, hogy a felhasználókat csoportokba
+  tudjuk rendezni és a csoportoknak tudok jogosultságokat biztosítni.
+  Például: fel tudok venni Admin, Pincér, Szakács, Főpincér csoportokat, és az egyes felhasználókat fel tudom venni ezekbe a csoportokba.
+  Majd azt tudom mutatni, hogy egy adott Controller/Action egy adott csoport számára használható-e.
+ 
  

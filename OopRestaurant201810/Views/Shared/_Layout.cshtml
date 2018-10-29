@@ -9,6 +9,7 @@
 
 </head>
 <body>
+    @* Bootstrap navbar-t használ az ASP.NET MVC alkalmazás template a felső mwnü kialakítására *@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -19,12 +20,16 @@
                 </button>
                 @Html.ActionLink("OopRestaurant201810", "Index", "MenuItems", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse"> @* eltűnik, ha jön a hamburger menü *@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Étlap", "Index", "MenuItems")</li>
-                    <li>@Html.ActionLink("Kategóriák", "Index", "Categories")</li>
+                    @if(Request.IsAuthenticated)
+                    {
+                        @* csak akkor látszik, ha a felhasználó be van jelentkezve *@
+                        <li>@Html.ActionLink("Kategóriák", "Index", "Categories")</li>
+                    }
                 </ul>
-                @Html.Partial("_LoginPartial")
+                @Html.Partial("_LoginPartial") @*  Bejelentkezéssel kapcsolatos linkek *@
             </div>
         </div>
     </div>

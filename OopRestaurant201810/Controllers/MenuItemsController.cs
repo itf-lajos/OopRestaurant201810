@@ -37,6 +37,7 @@ namespace OopRestaurant201810.Controllers
         }
 
         // GET: MenuItems/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -45,6 +46,7 @@ namespace OopRestaurant201810.Controllers
         // POST: MenuItems/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Description,Price")] MenuItem menuItem)
@@ -60,6 +62,7 @@ namespace OopRestaurant201810.Controllers
         }
 
         // GET: MenuItems/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -89,6 +92,7 @@ namespace OopRestaurant201810.Controllers
         // POST: MenuItems/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,CategoryId")] MenuItem menuItem)    // Be kell engedni a kiválasztott azonosítót
@@ -117,6 +121,7 @@ namespace OopRestaurant201810.Controllers
         }
 
         // GET: MenuItems/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -132,6 +137,7 @@ namespace OopRestaurant201810.Controllers
         }
 
         // POST: MenuItems/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
