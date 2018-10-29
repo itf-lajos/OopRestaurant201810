@@ -1,4 +1,7 @@
-﻿namespace OopRestaurant201810
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
+
+namespace OopRestaurant201810
 {
     /// <summary>
     /// Az étlapon szereplő tételek közül egy tétel adatait tartalmazza
@@ -28,5 +31,18 @@
         public int Price { get; set; }
 
         public Category Category { get; set; }
+
+        /// <summary>
+        /// A lenyíló lista kiválasztott elemének azonosítója részére
+        /// </summary>
+        [NotMapped]
+        public int CategoryId { get; set; }
+
+        /// <summary>
+        /// A lenyíló lista tartalma: azonosító és megjelenítendő szöveg párok
+        /// </summary>
+        [NotMapped]
+        public SelectList AssignableCategories { get; set; }
+
     }
 }

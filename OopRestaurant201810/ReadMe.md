@@ -47,4 +47,10 @@ kell hozzá:
 ## Kezdeti automatikus adatfeltöltés
 - Migrations / Configurations.cs-ben
 - Minden update-database esetén lefut (Seed metódus)
+
+## Lenyílómező kezelése
+- Entry - kapu az Entity Framework-be
+- A MenuItem mellé a Category-t is be kell tölteni, hogy módosítani tudjuk a menuItem kategóriáját
+ 
+
  
