@@ -72,4 +72,11 @@ kell hozzá:
 - Regisztrálunk felhasználókat, ezek az AspNetUsers táblába kerülnek
 - A felhasználókat hozzá tudjuk adni a csoporthoz úgy, hogy az AspNetUsers.Id és az AspNetRoles.Id értéket felvesszük az AspNetUserRoles táblába, megfelelően párosítva.
 - Figyelem: a jogosultságokat cookie-ba bejelentkezéskor írja az ASP.NET, ezért, ha változik valami, akkor ki kell jelentkezni és újra be
--  
+
+## Saját megjelenítő és szerkesztő HTML template
+A cél: kiemelni az azonos küdor egy külön állományba, majd különböző helyekről használni.
+- A View\Shared\EditorTemplates mappában vannak a szerkesztésre használt template nézetek.
+- Ha kiadjuk a @Html.EidtorForModel() utasítást a view-n, akkor az ASP.NET ezek közül megkeresi azt, ami a modelhez tartozik.
+- Ha nincs ilyen, akkor generál egy alapértelmezettet.
+- Ha van (MenuItem.cshtml a MenuItem osztálynak), akkor beemeli az aktuális helyre az utasítás helyére
+- 

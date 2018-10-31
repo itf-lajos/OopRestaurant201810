@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 
 namespace OopRestaurant201810
@@ -24,12 +26,16 @@ namespace OopRestaurant201810
 
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Ezt a mezőt kötelező kitölteni!")]
         public string Name { get; set; }
 
+        [Required]
         public string  Description { get; set; }
 
+        [Range(1, 100000)]
         public int Price { get; set; }
 
+        [Required]
         public Category Category { get; set; }
 
         /// <summary>

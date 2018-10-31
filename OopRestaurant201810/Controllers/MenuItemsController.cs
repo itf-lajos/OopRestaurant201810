@@ -41,7 +41,9 @@ namespace OopRestaurant201810.Controllers
         // [Authorize(Users = "itf.lajos@gmail.com")]   // Csak a megadott felhasználó használhatja
         public ActionResult Create()
         {
-            return View();
+            var menuItem = new MenuItem();
+            LoadAssignableCategories(menuItem);
+            return View(menuItem);
         }
 
         // POST: MenuItems/Create
@@ -50,8 +52,25 @@ namespace OopRestaurant201810.Controllers
         [Authorize(Roles = "Fopincer,Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Price")] MenuItem menuItem)
+        public ActionResult Create([Bind(Include = "Id,Name,Description,Price,CategoryId")] MenuItem menuItem)
         {
+            var category = db.Categories.Find(menuItem.CategoryId);
+
+            if (category == null)
+            {   // ha nincs ilyen kategória, akkor nem tudok mit tenni, visszaküldöm módosításra
+                LoadAssignableCategories(menuItem);
+                return View(menuItem);
+            }
+
+            db.MenuItems.Attach(menuItem);
+            // mivel ez egy vadonatúj elem, ami még nem volt az adatbázisban. ezért nem tudunk property-t tölteni, mert nincs honnan,
+            // ezért az Edit-tel ellentétben a következő sor nem kell
+            // db.Entry(menuItem).Reference(x => x.Category).Load();
+            menuItem.Category = category;
+
+            // Újra kell az adatok ellenőrzését végezni, hiszen megmódosítottam az egyes property-ket
+            ModelState.Clear();     // előző törlése
+            TryValidateModel(menuItem);     // újra validálás
             if (ModelState.IsValid)
             {
                 db.MenuItems.Add(menuItem);
@@ -59,7 +78,13 @@ namespace OopRestaurant201810.Controllers
                 return RedirectToAction("Index");
             }
 
+            LoadAssignableCategories(menuItem);
             return View(menuItem);
+        }
+
+        private void LoadAssignableCategories(MenuItem menuItem)
+        {
+            menuItem.AssignableCategories = new SelectList(db.Categories.OrderBy(x => x.Name).ToList(), "Id", "Name");
         }
 
         // GET: MenuItems/Edit/5
@@ -85,7 +110,8 @@ namespace OopRestaurant201810.Controllers
             // letöltjük a Categories tábla tartalmát (db.Categories.Tolist())
             // megadjuk, hogy melyik mező azonosítja a sort, és adja azt az értéket, ami a végeredmény (Id)
             // megadjuk, hogy a lenyíló egyes soraiba melyik property értékei kerüljenek (Name)
-            menuItem.AssignableCategories = new SelectList(db.Categories.OrderBy(x=>x.Name).ToList(), "Id", "Name");
+            LoadAssignableCategories(menuItem);
+            // menuItem.AssignableCategories = new SelectList(db.Categories.OrderBy(x=>x.Name).ToList(), "Id", "Name");
 
             return View(menuItem);
         }
@@ -98,26 +124,37 @@ namespace OopRestaurant201810.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,CategoryId")] MenuItem menuItem)    // Be kell engedni a kiválasztott azonosítót
         {
+            var category = db.Categories.Find(menuItem.CategoryId);
+
+            if (category == null)
+            {   // ha nincs ilyen kategória, akkor nem tudok mit tenni, visszaküldöm módosításra
+                LoadAssignableCategories(menuItem);
+                return View(menuItem);
+            }
+
+            // html formról jövő adatokat bemutatjuk az adatbázisnak
+            db.MenuItems.Attach(menuItem);
+
+            // az adatbázissal kapcsolatos dolgok eléréséhez kell az Entry
+            var entry = db.Entry(menuItem);
+
+            // ennek segítségével betöltjük a Category tábla adatait a menuItem.Category property-be
+            entry.Reference(x => x.Category).Load();
+
+            // majd felülírjuk azzal, ami bejött a html formon
+            menuItem.Category = category;
+
+            // módosítás után az adatellenőrzést újra el kell végezni
+            ModelState.Clear();
+            TryValidateModel(menuItem);
+
             if (ModelState.IsValid)
             {
-                var category = db.Categories.Find(menuItem.CategoryId);
-
-                // html formról jövő adatokat bemutatjuk az adatbázisnak
-                db.MenuItems.Attach(menuItem);
-
-                // az adatbázissal kapcsolatos dolgok eléréséhez kell az Entry
-                var entry = db.Entry(menuItem);
-
-                // ennek segítségével betöltjük a Category tábla adatait a menuItem.Category property-be
-                entry.Reference(x => x.Category).Load();
-
-                // majd felülírjuk azzal, ami bejött a html formon
-                menuItem.Category = category;
-
                 entry.State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            LoadAssignableCategories(menuItem);
             return View(menuItem);
         }
 
