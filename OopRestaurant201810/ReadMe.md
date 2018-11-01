@@ -107,4 +107,22 @@ A cél: kiemelni az azonos küdor egy külön állományba, majd különböző h
   var valami = Osztálynév();
 
 - A névtér feletti névteret is látom, így a felül lévőt nem kell megadni.
-- 
+
+## Modell osztályok elnevezése
+- Ha ki akarjuk hangsúlyozni, hogy valami modell, akkor mindenképpen szerepel a nevében a "models"
+- A model (DataModel) az az osztály, ami az adattárolásban részt vesz. Vagy ő az az osztály, amibe az adattárolásból betöltjük az adatokat.
+- Nincs kötelező szabály az elnevezéseknél.
+- IdentityModels - egy állományba kerüljön az összes olyan adatmodellhez köthető dolog ami az Identity kezeléshez kapcsolódik.
+- Az osztályokat külön állományokba kell tenni.
+- AccountViewModels, ManageViewModels - csoportosító állományok.
+- ViewModel az a model osztály, ami csak a megjelenítésben vesz részt, nem megy el az adatbázisig.
+- A controller állítja elő és átadja a view felé.
+- Mi un. hibrid modellt gyártunk, ami mindenben részt vesz.
+
+- Ha szét akarnánk szedni a szerepeket, akkor lenne:
+  - egy Category osztály, ami a Code First segítségével az adatbázist "jelentené"
+  - egy CategoryModel osztály, amibe az adatbázisból olvasott adatokat beírnánk
+  - egy CategoryViewModel, amit a Controller gyárt és átad a View-nak, illetve a Controller fogad a HTML form-ról és gyárt belőle CategoryModel-t,
+    amit aztán Category-vá alakítunk és az adatbázisba kiírjuk
+
+ 
