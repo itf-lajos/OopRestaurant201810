@@ -194,7 +194,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Category.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -203,7 +203,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MenuItem.cs" />
+    <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Migrations\201810242020175_IntitialMigration.cs" />
     <Compile Include="Migrations\201810242020175_IntitialMigration.Designer.cs">
       <DependentUpon>201810242020175_IntitialMigration.cs</DependentUpon>

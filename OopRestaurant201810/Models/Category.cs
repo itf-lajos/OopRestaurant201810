@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace OopRestaurant201810
+namespace OopRestaurant201810.Models
 {
     public class Category
     {

@@ -79,4 +79,32 @@ A cél: kiemelni az azonos küdor egy külön állományba, majd különböző h
 - Ha kiadjuk a @Html.EidtorForModel() utasítást a view-n, akkor az ASP.NET ezek közül megkeresi azt, ami a modelhez tartozik.
 - Ha nincs ilyen, akkor generál egy alapértelmezettet.
 - Ha van (MenuItem.cshtml a MenuItem osztálynak), akkor beemeli az aktuális helyre az utasítás helyére
+
+## Saját modellek, modellek szerepe
+- Adatcsomagok kezelésére használható.
+- Minden ami adat az tulajdonképpen "modell", ez a szakzsargonban szinonim fogalom.
+- Névterek - osztályok, objektumok csoportosítására használjuk.
+- Az objektumokból rengeteg van, több tízezer, mi is akármennyit létre tudunk hozmi. Ezért egy listában ezeket nem lehet kezelhetően használni.
+  Erre találták ki a névtereket (namespace).
+- System  - Data   - Entity
+          - Linq
+          - Net
+          - Web    - MVC
+- A mi névterünk egy része:
+  - OopRestaurant201810   - Controllers   - MenuItemsController
+                                          - CategoriesController 
+                          - Models
+- namespace CsoportosításNév
+  {
+    class Osztálynév {
+    }
+  }
+  var valami = CsoportosításNév.Osztálynév;
+
+  vagy a kódblokk elején:
+
+  using CsoportosításNév
+  var valami = Osztálynév();
+
+- A névtér feletti névteret is látom, így a felül lévőt nem kell megadni.
 - 

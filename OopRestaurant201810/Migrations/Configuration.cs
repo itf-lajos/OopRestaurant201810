@@ -2,6 +2,7 @@ using System.ComponentModel;
 
 namespace OopRestaurant201810.Migrations
 {
+    using OopRestaurant201810.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;

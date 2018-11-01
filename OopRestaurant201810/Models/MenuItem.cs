@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 
-namespace OopRestaurant201810
+namespace OopRestaurant201810.Models
 {
     /// <summary>
     /// Az étlapon szereplő tételek közül egy tétel adatait tartalmazza
@@ -27,15 +27,20 @@ namespace OopRestaurant201810
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Ezt a mezőt kötelező kitölteni!")]
+        [Display(Name = "Név")]
         public string Name { get; set; }
 
         [Required]
+        [Display(Name = "Leírás")]
+        [DataType(DataType.MultilineText)]
         public string  Description { get; set; }
 
         [Range(1, 100000)]
+        [Display(Name = "Ár")]
         public int Price { get; set; }
 
         [Required]
+        [Display(Name = "Kategória")]
         public Category Category { get; set; }
 
         /// <summary>
