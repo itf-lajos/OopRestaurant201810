@@ -125,4 +125,8 @@ A cél: kiemelni az azonos küdor egy külön állományba, majd különböző h
   - egy CategoryViewModel, amit a Controller gyárt és átad a View-nak, illetve a Controller fogad a HTML form-ról és gyárt belőle CategoryModel-t,
     amit aztán Category-vá alakítunk és az adatbázisba kiírjuk
 
- 
+## Nézet generálása DisplayTemplates segítségével
+- MenuItem layout
+  - Create / Edit -> EditorForModels -> EditorTemplates könyvtárban a MenuItem
+  - Detail / Delete -> DisplayForModels -> DisplayTemplates könyvtárban a MenuItem
+- 
