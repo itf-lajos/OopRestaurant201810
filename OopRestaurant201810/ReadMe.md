@@ -129,4 +129,20 @@ A cél: kiemelni az azonos küdor egy külön állományba, majd különböző h
 - MenuItem layout
   - Create / Edit -> EditorForModels -> EditorTemplates könyvtárban a MenuItem
   - Detail / Delete -> DisplayForModels -> DisplayTemplates könyvtárban a MenuItem
-- 
+
+## CRUD műveletek szervezése a Controlleren
+- Create, Read, Update, Delete
+- New - újonnan megjelenítendő elem
+### Megjelenítő műveletek (Get action-ök)
+- Details
+- Create
+- Edit
+- Delete
+Ezekben közös, hogy megjelenítő oldalakat generálnak
+### Adat(bázis) műveletek
+- Read
+- New
+
+
+
+

@@ -15,6 +15,59 @@ namespace OopRestaurant201810.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        /// <summary>
+        /// Ez a függvény felelős a model betöltéséért minden megjelenítő (get) action esetén
+        /// </summary>
+        /// <param name="id">MenuItem azonosító, lehet null érték is</param>
+        /// <param name="op">Művelet: Read or New</param>
+        /// <returns></returns>
+        private MenuItem ReadOrNewMenuItem(int? id, ReadOrNewOperation op)
+        {
+            MenuItem menuItem;
+
+            switch (op)
+            {
+                case ReadOrNewOperation.Read:
+                    // 1. Adatok betöltése az adatbázisból (Model)
+                    menuItem = db.MenuItems.Find(id);
+                    if (menuItem == null)
+                    {
+                        // return menuItem;
+                        return null;
+                    }
+                    //return db.MenuItems.Find(id);
+                    // Be kell töltenünk a menuItem Category property-jét, amit az Entity Framework magától nem tölt be
+                    db.Entry(menuItem)
+                        .Reference(x => x.Category)
+                        .Load();
+                    break;
+
+                case ReadOrNewOperation.New:
+                    // 1. Adat (model) példányosítása
+                    menuItem = new MenuItem();
+                    break;
+
+                default:
+                    throw new Exception($"Erre nem készültünk fel: {op}");
+                    break;
+            }
+
+            // 2. Megjelenítési adatok feltöltése (ViewModel)
+            // hogy be tudjuk állítani a lenyílót, megadjuk az aktuális kategória azonosítóját
+            if (menuItem.Category != null)
+            {
+                menuItem.CategoryId = menuItem.Category.Id;
+            }
+            // letöltjük a Categories tábla tartalmát (db.Categories.Tolist())
+            // megadjuk, hogy melyik mező azonosítja a sort, és adja azt az értéket, ami a végeredmény (Id)
+            // megadjuk, hogy a lenyíló egyes soraiba melyik property értékei kerüljenek (Name)
+            LoadAssignableCategories(menuItem);
+            // menuItem.AssignableCategories = new SelectList(db.Categories.OrderBy(x=>x.Name).ToList(), "Id", "Name");
+
+            return menuItem;
+
+        }
+
         private void LoadAssignableCategories(MenuItem menuItem)
         {
             menuItem.AssignableCategories = new SelectList(db.Categories.OrderBy(x => x.Name).ToList(), "Id", "Name");
@@ -33,12 +86,13 @@ namespace OopRestaurant201810.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MenuItem menuItem = db.MenuItems.Find(id);
+            MenuItem menuItem = ReadOrNewMenuItem(id, ReadOrNewOperation.Read);
+            //MenuItem menuItem = db.MenuItems.Find(id);
             if (menuItem == null)
             {
                 return HttpNotFound();
             }
-            LoadAssignableCategories(menuItem);
+            //LoadAssignableCategories(menuItem);
             return View(menuItem);
         }
 
@@ -47,7 +101,8 @@ namespace OopRestaurant201810.Controllers
         // [Authorize(Users = "itf.lajos@gmail.com")]   // Csak a megadott felhasználó használhatja
         public ActionResult Create()
         {
-            var menuItem = new MenuItem();
+            var menuItem = ReadOrNewMenuItem(null, ReadOrNewOperation.New);
+            //var menuItem = new MenuItem();
             LoadAssignableCategories(menuItem);
             return View(menuItem);
         }
@@ -96,23 +151,23 @@ namespace OopRestaurant201810.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MenuItem menuItem = db.MenuItems.Find(id);
+            MenuItem menuItem = ReadOrNewMenuItem(id, ReadOrNewOperation.Read);
             if (menuItem == null)
             {
                 return HttpNotFound();
             }
 
-            // Be kell töltenünk a menuItem Category property-jét, amit az Entity Framework magától nem tölt be
-            db.Entry(menuItem)
-                .Reference(x=>x.Category)
-                .Load();
-            // hogy be tudjuk állítani a lenyílót, megadjuk az aktuális kategória azonosítóját
-            menuItem.CategoryId = menuItem.Category.Id;
-            // letöltjük a Categories tábla tartalmát (db.Categories.Tolist())
-            // megadjuk, hogy melyik mező azonosítja a sort, és adja azt az értéket, ami a végeredmény (Id)
-            // megadjuk, hogy a lenyíló egyes soraiba melyik property értékei kerüljenek (Name)
-            LoadAssignableCategories(menuItem);
-            // menuItem.AssignableCategories = new SelectList(db.Categories.OrderBy(x=>x.Name).ToList(), "Id", "Name");
+            //// Be kell töltenünk a menuItem Category property-jét, amit az Entity Framework magától nem tölt be
+            //db.Entry(menuItem)
+            //    .Reference(x => x.Category)
+            //    .Load();
+            //// hogy be tudjuk állítani a lenyílót, megadjuk az aktuális kategória azonosítóját
+            //menuItem.CategoryId = menuItem.Category.Id;
+            //// letöltjük a Categories tábla tartalmát (db.Categories.Tolist())
+            //// megadjuk, hogy melyik mező azonosítja a sort, és adja azt az értéket, ami a végeredmény (Id)
+            //// megadjuk, hogy a lenyíló egyes soraiba melyik property értékei kerüljenek (Name)
+            //LoadAssignableCategories(menuItem);
+            //// menuItem.AssignableCategories = new SelectList(db.Categories.OrderBy(x=>x.Name).ToList(), "Id", "Name");
 
             return View(menuItem);
         }
@@ -167,12 +222,13 @@ namespace OopRestaurant201810.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MenuItem menuItem = db.MenuItems.Find(id);
+            MenuItem menuItem = ReadOrNewMenuItem(id, ReadOrNewOperation.Read);
+            //MenuItem menuItem = db.MenuItems.Find(id);
             if (menuItem == null)
             {
                 return HttpNotFound();
             }
-            LoadAssignableCategories(menuItem);
+            //LoadAssignableCategories(menuItem);
             return View(menuItem);
         }
 
