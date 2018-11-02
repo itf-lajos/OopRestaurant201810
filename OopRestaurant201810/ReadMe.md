@@ -143,6 +143,15 @@ Ezekben közös, hogy megjelenítő oldalakat generálnak
 - Read
 - New
 
+### Módosító műveletek (Post action-ök)
+- Create
+- Edit
+- Delete
+Ezekben a műveletekben közös, hogy a beérkező adatokat elmentik:
+- Create
+- Update
+- Delete
+
 
 
 
