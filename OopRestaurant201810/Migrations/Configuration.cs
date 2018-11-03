@@ -31,7 +31,23 @@ namespace OopRestaurant201810.Migrations
             context.MenuItems.AddOrUpdate(x => x.Name, new MenuItem(name: "Hawaii", description: "mozarella, sonka, ananász", price: 300, category: pizzaCategory));
             context.SaveChanges();
 
-            //var category = new Category();
+            // Helyiségek feltöltése
+            context.Locations.AddOrUpdate(x => x.Name, new Location() { Name = "Terasz", IsOutDoor = true });        // Ha nincs megfelelõ konstruktor, akkor ez használható
+            context.Locations.AddOrUpdate(x => x.Name, new Location("Belsõ terem", false));          // A konstruktort használja feltöltésre
+            context.SaveChanges();
+
+            var outdoorLocation = context.Locations
+                                         .Where(x => x.Name == "Terasz") // Az összes sort visszaadja, amelyikre igaz. Ha nincs, üres lista, ha több van, hosszabb lista.
+                                         .FirstOrDefault();     // Ha üres a lista, NULL-t ad vissaz, ha van elem, akkor az elsõt adja
+            if (outdoorLocation == null)
+            {
+                throw new Exception("Nincs megfelelõ Location az adatbázisban");
+            }
+
+            // Asztalok feltöltése
+            context.Tables.AddOrUpdate(x => x.Name, new Table() { Name="Bal-2", Location = outdoorLocation});
+            context.SaveChanges();
+
         }
     }
 }

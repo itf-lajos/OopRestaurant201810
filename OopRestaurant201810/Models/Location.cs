@@ -9,6 +9,22 @@ namespace OopRestaurant201810.Models
     public class Location
     {
         /// <summary>
+        /// Alapértelmezett paraméter nélküli konstruktor
+        /// </summary>
+        public Location() {}
+
+        /// <summary>
+        /// Konstruktor, ami a használhatóságot javítja
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="isOutDoor"></param>
+        public Location( string name, bool isOutDoor)
+        {
+            Name = name;
+            IsOutDoor = isOutDoor;
+        }
+
+        /// <summary>
         /// PK mező a táblához
         /// </summary>
         public int Id { get; set; }

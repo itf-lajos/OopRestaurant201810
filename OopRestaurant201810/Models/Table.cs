@@ -9,6 +9,14 @@ namespace OopRestaurant201810.Models
 {
     public class Table
     {
+        public Table() {}
+
+        public Table(string name, Location location)
+        {
+            Name = name;
+            Location = location;
+        }
+
         /// <summary>
         /// Elsődleges kulcs mező (PK)
         /// az EF Code First ebből megcsinálja a db identity mezőt
