@@ -30,6 +30,10 @@ namespace OopRestaurant201810.Models
 
         public DbSet<MenuItem> MenuItems { get; set; }
 
+        public DbSet<Table> Tables { get; set; }
+
+        public DbSet<Location> Locations { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

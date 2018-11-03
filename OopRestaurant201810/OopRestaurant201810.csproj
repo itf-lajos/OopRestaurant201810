@@ -194,6 +194,18 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Migrations\201811031203344_add Tables database tabla.cs" />
+    <Compile Include="Migrations\201811031203344_add Tables database tabla.Designer.cs">
+      <DependentUpon>201811031203344_add Tables database tabla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811031242364_add Location database table and Table.column property.cs" />
+    <Compile Include="Migrations\201811031242364_add Location database table and Table.column property.Designer.cs">
+      <DependentUpon>201811031242364_add Location database table and Table.column property.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811031253354_Required annotáció a Tables és a Locations táblákban.cs" />
+    <Compile Include="Migrations\201811031253354_Required annotáció a Tables és a Locations táblákban.Designer.cs">
+      <DependentUpon>201811031253354_Required annotáció a Tables és a Locations táblákban.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\CreateUpdateOrDeleteOperation.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -204,6 +216,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Migrations\201810242020175_IntitialMigration.cs" />
     <Compile Include="Migrations\201810242020175_IntitialMigration.Designer.cs">
@@ -226,6 +239,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ReadOrNewOperation.cs" />
+    <Compile Include="Models\Table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -331,6 +345,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810312154478_add required validations to MenuItem.resx">
       <DependentUpon>201810312154478_add required validations to MenuItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811031203344_add Tables database tabla.resx">
+      <DependentUpon>201811031203344_add Tables database tabla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811031242364_add Location database table and Table.column property.resx">
+      <DependentUpon>201811031242364_add Location database table and Table.column property.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811031253354_Required annotáció a Tables és a Locations táblákban.resx">
+      <DependentUpon>201811031253354_Required annotáció a Tables és a Locations táblákban.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
