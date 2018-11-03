@@ -1,0 +1,40 @@
+﻿@model OopRestaurant201810.Models.Location
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Location</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsOutDoor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsOutDoor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (Request.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Fopincer")))
+    {
+        <div>
+            @Html.ActionLink("Edit", "Edit", new {id = Model.Id}) |
+        </div>
+    }
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

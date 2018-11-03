@@ -165,4 +165,15 @@ Fontos, hogy a szöveges mezők (ha nincs rajtuk egyéb megszorítás), akkor te
   - Az italok közül vannak szénsavas és szénsavmentes is.
   - Az ételeknél érdemes nyilvántartani, hogy tartalmaz-e húst.
 
+
+
+
+
+## Házi feladat
+- az adatfeltöltéssel játszani (Migrations/Configuration/Seed), több asztal, több helyszín
+- az Asztal osztálynak konstruktor készítése
+- a Location osztálynak generált vezérlők és nézetek átnézése
+- a Location és a Categories nézetek továbbfejlesztése (EditorTempltaes, DisplayTemplates) készítése és használata
+- a Category osztály megjelenítése magyarul 
+- jogosultságok beállítása a locations-nek megfelelő módon a Categories-nál is
 - 
