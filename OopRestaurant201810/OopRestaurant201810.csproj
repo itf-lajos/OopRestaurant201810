@@ -195,6 +195,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\TablesController.cs" />
     <Compile Include="Migrations\201811031203344_add Tables database tabla.cs" />
     <Compile Include="Migrations\201811031203344_add Tables database tabla.Designer.cs">
       <DependentUpon>201811031203344_add Tables database tabla.cs</DependentUpon>
@@ -321,6 +322,13 @@
     <Content Include="Views\Locations\Details.cshtml" />
     <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
+    <Content Include="Views\Tables\Create.cshtml" />
+    <Content Include="Views\Tables\Delete.cshtml" />
+    <Content Include="Views\Tables\Details.cshtml" />
+    <Content Include="Views\Tables\Edit.cshtml" />
+    <Content Include="Views\Tables\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Table.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Table.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

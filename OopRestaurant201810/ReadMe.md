@@ -164,8 +164,7 @@ Fontos, hogy a szöveges mezők (ha nincs rajtuk egyéb megszorítás), akkor te
   - Például szeretnénk desszertet felvenni az étlapra, és legyen cukormentes is.
   - Az italok közül vannak szénsavas és szénsavmentes is.
   - Az ételeknél érdemes nyilvántartani, hogy tartalmaz-e húst.
-
-
+- Jogosultságcsoportok és felhasználók feltése Seed-del.
 
 
 
@@ -176,4 +175,5 @@ Fontos, hogy a szöveges mezők (ha nincs rajtuk egyéb megszorítás), akkor te
 - a Location és a Categories nézetek továbbfejlesztése (EditorTempltaes, DisplayTemplates) készítése és használata
 - a Category osztály megjelenítése magyarul 
 - jogosultságok beállítása a locations-nek megfelelő módon a Categories-nál is
-- 
+- jogosultságok beállítása az Asztalok (Table) osztályon (vezérlőn, nézeteken)
+- Adatok betöltése és kiírása a TablesController-en
