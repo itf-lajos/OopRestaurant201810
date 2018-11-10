@@ -17,7 +17,34 @@ namespace OopRestaurant201810.Controllers
         // GET: Tables
         public ActionResult Index()
         {
-            return View(db.Tables.ToList());
+            //lekérdezzük az adatbázisból az asztalok listáját és egy változóba mentjük
+            var tables = db.Tables
+                          .Include(x => x.Location)
+//                          .OrderBy(x => x.Location.IsOutDoor)
+                          .ToList();
+
+            // elkészítjük a ViewModel
+            // 1. kelleni fog a termek listája
+            var locations = db.Locations
+                              .ToList();
+            foreach (var location in locations)
+            {
+                location.Tables = tables.Where(x => x.Location.Id == location.Id)
+                                        .ToList();      // Ekkor kéri le az adatokat ténylegesen
+                //Ha nem készítenénk saját változót, akkor egyből az adatbázisból is tölthetnénk a tables listáját
+                //location.Tables = db.Tables
+                //                    .Include(x => x.Location)
+                //                    .Where(x => x.Location.Id == location.Id)
+                //                    .ToList();      // Ekkor kéri le az adatokat ténylegesen
+            }
+
+            // majd ezt elküldjük a nézethez
+            return View(locations);
+
+            //return View(db.Tables
+            //    .Include(x => x.Location)
+            //    .OrderBy(x => x.Location.IsOutDoor)
+            //    .ToList());
         }
 
         // GET: Tables/Details/5

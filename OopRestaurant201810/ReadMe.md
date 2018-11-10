@@ -166,6 +166,14 @@ Fontos, hogy a szöveges mezők (ha nincs rajtuk egyéb megszorítás), akkor te
   - Az ételeknél érdemes nyilvántartani, hogy tartalmaz-e húst.
 - Jogosultságcsoportok és felhasználók feltése Seed-del.
 
+## Tennivalók
+- Az asztalok listáját szeretném úgy átszervezni, hogy külön csoportba kerüljön a kültéri és a beltéri asztalok listája
+- Ehhez vagy átalakítom a nézet kódját, és feldolgozom valamint átalakítom a megkapott adatokat,
+  vagy a vezérlőben dolgozom többet: előre feldolgozom az asztalok listáját és előállítok egy olyan modellt, amit könnyű megjeleníteni.
+- Kell egy új ViewModel, ami tartalmazza a termek listáját, maj ezen belül az egyes termekben tartalmazza a teremben lévő asztalok listáját.
+- A nézetnek az új ViewModel-t kell megjelenítenie.
+- Az adatbázis modellemet is át tudom alakítani, hogy eleve megmondja a termekhez tartozó asztalok listáját
+- 
 
 
 ## Házi feladat
@@ -177,3 +185,5 @@ Fontos, hogy a szöveges mezők (ha nincs rajtuk egyéb megszorítás), akkor te
 - jogosultságok beállítása a locations-nek megfelelő módon a Categories-nál is
 - jogosultságok beállítása az Asztalok (Table) osztályon (vezérlőn, nézeteken)
 - Adatok betöltése és kiírása a TablesController-en
+
+- Az asztal kültéri vagy beltéri-e
