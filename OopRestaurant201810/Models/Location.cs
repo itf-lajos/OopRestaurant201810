@@ -42,7 +42,12 @@ namespace OopRestaurant201810.Models
         [Display(Name="A szabadban van?")]
         public bool IsOutDoor { get; set; }
 
-        //felhasználva z Asztalból ide irányuló kapcsolatot, visszafelé ide azokat az asztalokat várom. amelyek ehhez a teremhez lettek rögzítve.
+        //Felhasználva z Asztalból ide irányuló kapcsolatot, visszafelé ide azokat az asztalokat várom. amelyek ehhez a teremhez lettek rögzítve.
+        //Mivel kivettük a NotMapped-et, ezért a Code First fennhatósága alá kerül.
+        //1. a CodeFirst fennhatósága alá kerül
+        //2. mivel ide irányba az aasztaltól mutat kapcsolat
+        //3. ezért a teremhez visszafelé ki lehet gyűjteni a hozzá tartozó asztalokat
+        //Ezzel a property-vel azt a létező kapcsolatot felhasználva elérhetővé tesszük az asztalokat, amik a teremhez tartoznak.
         //[NotMapped]
         public List<Table> Tables { get; set; }
     }
