@@ -164,6 +164,7 @@ Fontos, hogy a szöveges mezők (ha nincs rajtuk egyéb megszorítás), akkor te
   - Például szeretnénk desszertet felvenni az étlapra, és legyen cukormentes is.
   - Az italok közül vannak szénsavas és szénsavmentes is.
   - Az ételeknél érdemes nyilvántartani, hogy tartalmaz-e húst.
+
 - Jogosultságcsoportok és felhasználók feltése Seed-del.
 
 ## Tennivalók
@@ -176,6 +177,11 @@ Fontos, hogy a szöveges mezők (ha nincs rajtuk egyéb megszorítás), akkor te
 - Az adatbázis modellemet is át tudom alakítani, hogy eleve megmondja a termekhez tartozó asztalok listáját
 - Lenyílómező a Location-höz
 
+## Jogosultságcsoportok és felhasználók feltöltése Seed-del
+- Szerepek és felhasználók induló feltöltése
+- A szerepeket at "Authorize" annotációval fixen beírjuk
+- A felhasználók adminisztrációjának felületét ebből a kódból meg lehet írni, ha az alkalmazásban beépített szerepek vannak
+  és van egy beépített adminisztrátor 
 
 ## Házi feladat
 - az adatfeltöltéssel játszani (Migrations/Configuration/Seed), több asztal, több helyszín
@@ -188,3 +194,5 @@ Fontos, hogy a szöveges mezők (ha nincs rajtuk egyéb megszorítás), akkor te
 - Adatok betöltése és kiírása a TablesController-en
 
 - Az asztal kültéri vagy beltéri-e
+- A szerepek és/vagy a felhasználók adminisztrációjához saját webes felület létrehozása az itteni kódok alapján
+ 
